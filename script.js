@@ -52,13 +52,13 @@ function showQuestion(question)
   buttonValue.forEach(function(button) {
     button.addEventListener("click", function() {
       if(button.value == question.answer){
-        
+        alert("Acertou Miseravel")
         currentQuestionIndex++;
         showQuestion(questions[currentQuestionIndex]);
-        alert("Acertou Miseravel")
+        
         
       }else{
-        alert("Resposta Errada seu Burro")
+        alert("Resposta Errado")
       }
       
     });

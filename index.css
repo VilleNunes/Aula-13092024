@@ -17,8 +17,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-
-  
+  padding: 10px;
 }
 
 .quiz-container{
@@ -39,7 +38,8 @@ h2{
 .opcao{
   display: flex;
   gap: 15px;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .button{
   flex: 1;
@@ -52,11 +52,12 @@ h2{
   font-weight: bold;
   font-family: cursive;
   cursor: pointer;
+  transition: 0.5s ease-in-out;
 
   &:hover{
     background-color: rgb(204, 136, 9);
-    transition: 0.5s;
-    transform: scale(1.04);
+    transform: translateY(-5px);
+    
   }
   
 }
@@ -64,4 +65,20 @@ h2{
 .flex{
   display: flex;
   justify-content: right;
+}
+.placar{
+  background-color: orange;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 20px;
+
+  p{
+    padding: 5px;
+  }
+  h2{
+    margin-bottom: 10px;
+  }
 }

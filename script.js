@@ -1,4 +1,8 @@
 
+const placarAcert = document.querySelector(".placar #acerto");
+const placarErro = document.querySelector(".placar #erro")
+let acerto = 0;
+let erro = 0;
 const questions = [
   {
      question: "Qual é a capital da França?",
@@ -40,31 +44,41 @@ function showQuestion(question)
           ${
              question.options.map(
                   (option, index) => `
-                    <button id="valor" value="${option}" class="button">${option}</button>
+                    <button id="valor"  onclick="select('${option}')" class="button">${option}</button>
                   `
              ).join('')
           }
           
       </div>
   `;
- 
-  var buttonValue = document.querySelectorAll("#valor");
-  buttonValue.forEach(function(button) {
-    button.addEventListener("click", function() {
-      if(button.value == question.answer){
-        alert("Acertou Miseravel")
-        currentQuestionIndex++;
-        showQuestion(questions[currentQuestionIndex]);
-        
-        
-      }else{
-        alert("Resposta Errado")
-      }
-      
-    });
-  })
   
 }
 
+function select(selectedOption){
+  // Verifica se a resposta está correta
+
+  if(currentQuestionIndex > questions.length - 1){
+    alert("Quiz conpleto");
+  }
+  if(selectedOption === questions[currentQuestionIndex].answer){
+    alert("Resposta correta!");
+    acerto++;
+    placarAcert.innerText = "Acertos " + acerto;
+  } else {
+    alert("Resposta errada!");
+    erro++;
+    placarErro.innerText = "Erros " + erro;
+  }
+  currentQuestionIndex++;
+  showQuestion(questions[currentQuestionIndex]);
+}
+
+
+
 
 showQuestion(questions[currentQuestionIndex]);
+
+ 
+
+
+
